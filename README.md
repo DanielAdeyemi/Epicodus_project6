@@ -1,5 +1,5 @@
-## {PROJECT NAME}
-#### *Epicodus Week-- Lesson-- on  -/--/2021*
+## Currency Exchanger
+#### *Epicodus Week 6 Independent Project  2/12/2021*
 ***By Daniel Adeyemi***
 ___
 
