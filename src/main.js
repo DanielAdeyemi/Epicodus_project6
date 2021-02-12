@@ -5,22 +5,34 @@ import './css/styles.css';
 import Converter from './js/business_logic.js';
 
 function showRate(response, change) {
-  if (response.result === 'success') {
-    return $('.result').text((change in response.conversion_rates) ?
-      (`${(response.conversion_rates[change])}`) :
-      (`There was an error: This type of currency not available right now or you try to input invalid symbol.`));
+  if (response.result === 'success' && change in response.conversion_rates) {
+    $('.output').show();
+    return $('.result').text(`${(response.conversion_rates[change])}`);
   } else {
-    $('.error').text(`There was an error: ${Object.values(response)[1]}`);
+    $('.error').show();
+    return (response.result !== 'success') ? $('#errorResult').text(`There was an error: ${Object.values(response)[1]}`) :
+      $('#errorResult').text(`There was an error: This type of currency not available right now or you try to input invalid symbol.`);
   }
 }
 
-$('#convert').click(function(event) {
-  event.preventDefault();
+$('#convert').click(function(event1) {
+  event1.preventDefault();
+  $('form').hide();
   const change = $('#change').val().toUpperCase();
-  if (!change)
-    return $('.result').text(`No currency to convert, please, try again`);
+  if (!change) {
+    $('.error').show();
+    return $('#errorResult').text(`No currency to convert. Please, try again`);
+  }
   Converter.convert()
     .then(function(response) {
       showRate(response, change);
     });
+});
+
+$('.again').click(function(event1) {
+  event1.preventDefault();
+  $('p').text('');
+  $('form')[0].reset();
+  $('.output, .error').hide();
+  $('form').show();
 });

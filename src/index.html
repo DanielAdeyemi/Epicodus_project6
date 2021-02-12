@@ -16,8 +16,22 @@
         <button id="convert">Convert</button>
       </form>
       <div class="output">
-        <div class="result"></div>
-        <div class="error"></div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Conversion was completed!</h5>
+            <p class="result"></p>
+            <button class="btn btn-primary again">Try again</button>
+          </div>
+        </div>
+      </div>
+      <div class="error">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Conversion cannot be completed!</h5>
+            <p id="errorResult"></p>
+            <button class="btn btn-primary again">Try again</button>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
