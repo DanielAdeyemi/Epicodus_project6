@@ -15,24 +15,33 @@ function showRate(response, change) {
   }
 }
 
-$('#convert').click(function(event1) {
+$('.btn-warning').click(function(event1) {
   event1.preventDefault();
-  $('#main').hide();
-  const change = $('#change').val().toUpperCase();
-  if (!change) {
-    $('.error').show();
-    return $('#errorResult').text(`No currency to convert. Please, try again`);
+  $('#currencyChoice, .btn-warning').hide();
+  let change = $('#choices').val();
+  $('#convert').show();
+  // const change = $('#change').val().toUpperCase();
+  if (change === 'Other') {
+    $('#other').show();
+    change = $('#other').val().toUpperCase();
   }
-  Converter.convert()
-    .then(function(response) {
-      showRate(response, change);
-    });
+  $('#convert').click(function(event2) {
+    event2.preventDefault();
+    if (!change) {
+      $('.error').show();
+      return $('#errorResult').text(`No currency to convert. Please, try again`);
+    }
+    Converter.convert()
+      .then(function(response) {
+        showRate(response, change);
+      });
+  });
 });
 
 $('.again').click(function(event1) {
   event1.preventDefault();
   $('p').text('');
   $('#main')[0].reset();
-  $('.output, .error').hide();
-  $('#main').show();
+  $('.output, .error, #convert').hide();
+  $('#main, .btn-warning').show();
 });

@@ -14,8 +14,6 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Let's convert some currency!</h5>
-            <label for="change"></label>
-            <input id="change">
             <form id="currencyChoice">
               <select id="choices" class="form-select" required>
                 <option value="EUR">EUR</option>
@@ -27,6 +25,9 @@
                 <option value="JPY">JPY</option>
                 <option value="Other">Other</option>
               </select>
+              <button class="btn btn-warning">Let's see</button>
+              <label for="other"></label>
+              <input id="other">
             </form>
             <button class="btn btn-success" id="convert">Convert</button>
           </div>
