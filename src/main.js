@@ -6,8 +6,9 @@ import Converter from './js/business_logic.js';
 
 function showRate(response, change) {
   if (response.result === 'success') {
-    $('.result').text((change in response.conversion_rates) ?
-      `${Object.keys(response.conversion_rates)}` : alert("no"));
+    return $('.result').text((change in response.conversion_rates) ?
+      (`${(response.conversion_rates[change])}`) :
+      (`There was an error: This type of currency not available right now.`));
   } else {
     $('.error').text(`There was an error: ${Object.values(response)[1]}`);
   }
