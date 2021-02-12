@@ -17,7 +17,7 @@ function showRate(response, change) {
 
 $('#convert').click(function(event1) {
   event1.preventDefault();
-  $('form').hide();
+  $('#main').hide();
   const change = $('#change').val().toUpperCase();
   if (!change) {
     $('.error').show();
@@ -32,7 +32,7 @@ $('#convert').click(function(event1) {
 $('.again').click(function(event1) {
   event1.preventDefault();
   $('p').text('');
-  $('form')[0].reset();
+  $('#main')[0].reset();
   $('.output, .error').hide();
-  $('form').show();
+  $('#main').show();
 });
