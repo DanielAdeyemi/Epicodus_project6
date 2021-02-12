@@ -1,10 +1,14 @@
-// export default class Name {
-//   constructor(p1,p2) {
-//     this.p1 = p1;
-//     this.p2 = p2;
-//   }
-
-//   method() {
-//    //TODO
-//   }
-// }
+export default class Converter {
+  static convert() {
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+      .then(function(response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .catch(function(error) {
+        return error();
+      });
+  }
+}
