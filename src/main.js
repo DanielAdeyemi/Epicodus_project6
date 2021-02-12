@@ -1,22 +1,22 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '.././css/styles.css';
+import './css/styles.css';
 import Converter from './js/business_logic.js';
 
-function showRate(response, change) {
+function showRate(response) {
   if (response.result === 'success') {
-    $('.result').text(`${response.conversion_rates.change}`);
+    $('.result').text(`${response.conversion_rates.EUR}`);
   } else {
-    $('.error').text(`There was an error: ${response.error-type}`);
+    $('.error').text(`There was an error: ${response.message}`);
   }
 }
 
 $('#convert').click(function(event) {
   event.preventDefault();
-  const change = $('#change').val().toUpperCase();
+  // const change = $('#change').val().toUpperCase();
   Converter.convert()
     .then(function(response) {
-      showRate(response, change)
-    })
-})
+      showRate(response);
+    });
+});
