@@ -8,7 +8,7 @@ function showRate(response) {
   if (response.result === 'success') {
     $('.result').text(`${response.conversion_rates.EUR}`);
   } else {
-    $('.error').text(`There was an error: ${response.message}`);
+    $('.error').text(`There was an error: ${Object.values(response)[1]}`);
   }
 }
 
