@@ -15,9 +15,21 @@ function showRate(response, change, number) {
   }
 }
 
+$('#selection').click(function(event3) {
+  event3.preventDefault();
+  $('#symbol').hide();
+  Converter.convert()
+    .then(function(response) {
+      Object.keys(response.conversion_rates).forEach(key => {
+        $("#choose").append(`<option value="${key}">${key}</option>`);
+      });
+    });
+});
+
 $('form').submit(function(event1) {
   event1.preventDefault();
-  let input = $('input#symbol').val().toUpperCase();
+  let input = ($('#symbol').val() !== '') ? $('.choice').val().toUpperCase() :
+    $('#choose').val();
   let number = $('input#num').val();
   Converter.convert()
     .then(function(response) {
@@ -30,7 +42,7 @@ $('.again').click(function(event2) {
   // $('input').text('');
   $('form')[0].reset();
   $('.output, .error, #convert, #other').hide();
-  $('#currencyChoice, .btn-success').show();
+  $('#currencyChoice, .btn-success, #symbol').show();
 });
 
 // $('.btn-success').click(function(event1) {
