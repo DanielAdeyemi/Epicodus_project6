@@ -10,28 +10,11 @@
   <div class="container">
     <header></header>
     <main>
-      <form id="main">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Let's convert some currency!</h5>
-            <form id="currencyChoice">
-              <select id="choices" class="form-select" required>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="SEK">SEK</option>
-                <option value="RUB">RUB</option>
-                <option value="CHF">CHF</option>
-                <option value="CZK">CZK</option>
-                <option value="JPY">JPY</option>
-                <option value="Other">Other</option>
-              </select>
-              <button class="btn btn-warning">Let's see</button>
-              <label for="other"></label>
-              <input id="other">
-            </form>
-            <button class="btn btn-success" id="convert">Convert</button>
-          </div>
-        </div>
+      <form>
+        <input class="form-control" id="num" type="number" placeholder="How many dollars you want to exchange?" min="0" required>
+        <input class="form-control" id="symbol" type="text" placeholder="Input currency symbol here">
+        <p>Or select from below</p>
+        <button type="submit" class="btn btn-primary">Exchange</button>
       </form>
       <div class="output">
         <div class="card" style="width: 18rem;">
