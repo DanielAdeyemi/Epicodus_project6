@@ -7,7 +7,7 @@ import Converter from './js/business_logic.js';
 function showRate(response, change, number) {
   if (response.result === 'success' && change in response.conversion_rates) {
     $('.output').show();
-    return $('.result').text(`${(response.conversion_rates[change] * number)}`);
+    return $('.result').text(`You will recieve ${(response.conversion_rates[change] * number).toFixed(2)} ${change} for $${number}`);
   } else {
     $('.error').show();
     return (response.result !== 'success') ? $('#errorResult').text(`There was an error: ${Object.values(response)[1]}`) :
@@ -18,6 +18,7 @@ function showRate(response, change, number) {
 $('#selection').click(function(event3) {
   event3.preventDefault();
   $('#symbol').hide();
+  $('.symbols').show();
   Converter.convert()
     .then(function(response) {
       Object.keys(response.conversion_rates).forEach(key => {
@@ -28,6 +29,7 @@ $('#selection').click(function(event3) {
 
 $('form').submit(function(event1) {
   event1.preventDefault();
+  $('.btn-success').hide();
   let input = ($('#symbol').val() !== '') ? $('.choice').val().toUpperCase() :
     $('#choose').val();
   let number = $('input#num').val();
@@ -39,35 +41,7 @@ $('form').submit(function(event1) {
 
 $('.again').click(function(event2) {
   event2.preventDefault();
-  // $('input').text('');
   $('form')[0].reset();
-  $('.output, .error, #convert, #other').hide();
+  $('.output, .error, #convert, #other, .symbols').hide();
   $('#currencyChoice, .btn-success, #symbol').show();
 });
-
-// $('.btn-success').click(function(event1) {
-//   event1.preventDefault();
-//   $('#currencyChoice, .btn-warning').hide();
-//   let change;
-//   $('#convert').show();
-//   // const change = $('#change').val().toUpperCase();
-//   // if ($('#choices').val() === 'Other') {
-//   //   $('#other').show();
-//   //   change = $('#other').val().toUpperCase();
-//   // } else {
-//   change = $('#choices').val();
-//   // }
-//   // $('#convert').click(function(event2) {
-//   //   event2.preventDefault();
-//   //   if (!change) {
-//   //     $('.error').show();
-//   //     $('p').text('');
-//   //     return $('#errorResult').text(`No currency to convert. Please, try again`);
-//   //   } else {
-//   Converter.convert()
-//     .then(function(response) {
-//       showRate(response, change);
-//     });
-// });
-// //   });
-// // });

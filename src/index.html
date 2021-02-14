@@ -8,19 +8,23 @@
 
 <body>
   <div class="container">
-    <header></header>
+    <header>
+      <h2>Currency calculator:</h2>
+    </header>
     <main>
       <form>
-        <input class="form-control" id="num" type="number" placeholder="How many dollars you want to exchange?" min="0" required>
-        <input class="form-control choice" id="symbol" type="text" placeholder="Input currency symbol here">
-        <button class="btn-btn-primary" id="selection">Or select from below</button>
-        <div class="form-group">
-          <label for="Currency">Currency Symbol: </label>
-          <select class="form-group" id="choose" class="choice">
-        
-      </select>
+        <div>Enter amount in US dollars :
+          <input class="form-control" id="num" type="number" placeholder="How many dollars you want to exchange?" min="0" required>
         </div>
-        <button type="submit" class="btn btn-primary">Exchange</button>
+        <div>
+          Enter currency symbol: <button class="btn btn-warning" id="selection">Or select here</button>
+          <input class="form-control choice" id="symbol" type="text" placeholder="Input currency symbol here">
+        </div>
+        <div class="form-group symbols">
+          <label for="Currency">Currency Symbol: </label>
+          <select class="form-group" id="choose" class="choice"></select>
+        </div>
+        <button type="submit" class="btn btn-success">Exchange</button>
       </form>
       <div class="output">
         <div class="card" style="width: 18rem;">
