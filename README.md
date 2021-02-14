@@ -5,7 +5,7 @@ ___
 
 ## *Description*:    
 ***Want to know how much money you will have in another country? Use our calculator!***
-### This web page will take amount of US dollars from the user and convert it into a currency of his choice.*
+### *This web page will take amount of US dollars from the user and convert it into a currency of his choice.*
 
 
 ## *Setup instructions:*
@@ -49,5 +49,5 @@ This project has almost no style and was used to demonstrate my understanding of
 ## *License and copyright:*
 
 > ***© Daniel Adeyemi, 2021***  
-> *API key from [ExchangeRate-API](https://www.exchangerate-api.com)*
+> *API key from [ExchangeRate-API](https://www.exchangerate-api.com)*   
 > *Licensed under [MIT license](https://mit-license.org/)*
