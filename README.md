@@ -17,11 +17,13 @@ ___
 #### From the terminal: 
 * Clone my repository from GitHub using `git clone https://github.com/DanielAdeyemi/https://github.com/DanielAdeyemi/Epicodus_project6.git`
 * Navigate to the downloaded folder using ***cd*** command
+* Create `.env` file in the top level of directory
+* For secure use of your key (and good practice), make sure you create *.env* file in your project and also put .env file inside `.gitignore`. *(Note: commit and push new .gitignore file as soon as you created .env and updated your gitignore!)* 
 * Execute **code .** command in your terminal and it will open all source code in your code editor.    
 *Note: to run this project locally you will need to have Node. After you cloned and open repository - execute `npm install` in command line to gain access to webpack*
 #### API keys requirement:
-This program requires an API key from [ExchangeRate-API](https://www.exchangerate-api.com.   
-For secure use of your key (and good practice), make sure you create *.env* file in your project and also put .env file inside `.gitignore`. *(Note: commit and push new .gitignore file as soon as you created .env and updated your gitignore!)*   
+This program requires an API key from [ExchangeRate-API](https://www.exchangerate-api.com).   
+  
 You can get key by going to the link above and  either request a free API key by just entering your email *(but be aware - free key has very limited functionality!)*   
 **OR** by following steps below:
 * in navigation bar on top of the page click `GET STARTED` button
@@ -46,5 +48,6 @@ This project has almost no style and was used to demonstrate my understanding of
 
 ## *License and copyright:*
 
-> ***© Daniel Adeyemi, 2021***   
+> ***© Daniel Adeyemi, 2021***  
+> *API key from [ExchangeRate-API](https://www.exchangerate-api.com)*
 > *Licensed under [MIT license](https://mit-license.org/)*
