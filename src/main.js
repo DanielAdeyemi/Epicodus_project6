@@ -4,15 +4,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Converter from './js/business_logic.js';
 
+
+function errorHandle(response) {
+  $('.error').show();
+  $('.symbols, .btn-success').hide();
+  return (response.result !== 'success') ? $('#errorResult').text(`There was an error: ${Object.values(response)[1]}`) :
+    $('#errorResult').text(`There was an error: This type of currency not available right now or you try to input invalid symbol.`);
+}
+
+
 function showRate(response, change, number) {
   if (response.result === 'success' && change in response.conversion_rates) {
     $('.output').show();
     return $('.result').text(`You will recieve ${(response.conversion_rates[change] * number).toFixed(2)} ${change} for $${number}`);
-  } else {
-    $('.error').show();
-    return (response.result !== 'success') ? $('#errorResult').text(`There was an error: ${Object.values(response)[1]}`) :
-      $('#errorResult').text(`There was an error: This type of currency not available right now or you try to input invalid symbol.`);
-  }
+  } else // {} was omitted intentionally (same in line 31)
+    errorHandle(response);
 }
 
 $('#selection').click(function(event3) {
@@ -21,11 +27,9 @@ $('#selection').click(function(event3) {
   $('.symbols').show();
   Converter.convert()
     .then(function(response) {
-      if (response.result !== 'success') {
-        $('.error').show();
-        $('.symbols').hide();
-        return $('#errorResult').text(`There was an error: ${Object.values(response)[1]}`);
-      } else {
+      if (response.result !== 'success')
+        errorHandle(response);
+      else {
         Object.keys(response.conversion_rates).forEach(key => {
           $("#choose").append(`<option value="${key}">${key}</option>`);
         });
