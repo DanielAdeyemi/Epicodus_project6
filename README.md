@@ -30,15 +30,15 @@ You can get key by going to the link above and  either request a free API key by
 * fill the form and you will be automatically sign up for free plan
 * copy your API KEY and insert into `.env` file as shown: **API_KEY={YOURKEY}** ({YOURKEY} is a placeholder for your API key, also you don't need use {}).
 
-#### GitHub pages:
-*GitHub page is unavailable for this project*
+#### View website:
+*GitHub page is unavailable for this project. To run it with a functioning environment use `npm run start` command*
 
 ## *Tecnologies used:*
 * HTML
 * CSS
 * Java Script
 * JQuery
-* Bootstrap *v5.0.0 beta*
+* Bootstrap *v.4.6.x*
 * Git and GitHub
 * Webpack
 * npm
@@ -51,3 +51,9 @@ This project has almost no style and was used to demonstrate my understanding of
 > ***© Daniel Adeyemi, 2021***  
 > *API key from [ExchangeRate-API](https://www.exchangerate-api.com)*   
 > *Licensed under [MIT license](https://mit-license.org/)*
+
+
+
+
+
+
