@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Converter from './js/business_logic.js';
 
-
 function errorHandle(response) {
   $('.error').show();
   $('.symbols, .btn-success').hide();
@@ -12,12 +11,11 @@ function errorHandle(response) {
     $('#errorResult').text(`There was an error: This type of currency not available right now or you try to input invalid symbol.`);
 }
 
-
 function showRate(response, change, number) {
   if (response.result === 'success' && change in response.conversion_rates) {
     $('.output').show();
     return $('.result').text(`You will recieve ${(response.conversion_rates[change] * number).toFixed(2)} ${change} for $${number}`);
-  } else // {} was omitted intentionally (same in line 31)
+  } else // {} was omitted intentionally (same in line 29)
     errorHandle(response);
 }
 
