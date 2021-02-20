@@ -21,9 +21,15 @@ $('#selection').click(function(event3) {
   $('.symbols').show();
   Converter.convert()
     .then(function(response) {
-      Object.keys(response.conversion_rates).forEach(key => {
-        $("#choose").append(`<option value="${key}">${key}</option>`);
-      });
+      if (response.result !== 'success') {
+        $('.error').show();
+        $('.symbols').hide();
+        return $('#errorResult').text(`There was an error: ${Object.values(response)[1]}`);
+      } else {
+        Object.keys(response.conversion_rates).forEach(key => {
+          $("#choose").append(`<option value="${key}">${key}</option>`);
+        });
+      }
     });
 });
 
